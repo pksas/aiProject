@@ -1,0 +1,82 @@
+[
+  {
+    "login": "example1@mail.ru",
+    "password": "P@ssw0rd123"
+  },
+  {
+    "login": "user_two@example.com",
+    "password": "Tr!ckyP@ss12"
+  },
+  {
+    "login": "+7-999-555-1212",
+    "password": "Mys3cr3tP@ss!"
+  },
+  {
+    "login": "account_four@gmail.com",
+    "password": "N0tS0E@syP@ss"
+  },
+  {
+    "login": "five.user@mail.ru",
+    "password": "@bC123D#efGh"
+  },
+  {
+    "login": "six_account@yahoo.com",
+    "password": "Secr3t!P@ssw0rd"
+  },
+  {
+    "login": "+7-888-777-1111",
+    "password": "L0ng&P@ssw0rd"
+  },
+  {
+    "login": "eight_user@yandex.ru",
+    "password": "HardT0GuessP@ss"
+  },
+  {
+    "login": "nine.account@hotmail.com",
+    "password": "!QAZxsw23EDCv"
+  },
+  {
+    "login": "ten@usermail.com",
+    "password": "#PassW0rd!$%^&"
+  },
+  {
+    "login": "eleven@example.net",
+    "password": "ComplexP@ss12!"
+  },
+  {
+    "login": "twelve_acc@outlook.com",
+    "password": "Unbr3ak@bl3P@ss"
+  },
+  {
+    "login": "thirteen.user@mailbox.org",
+    "password": "VeryL0ngP@ssw0rd"
+  },
+  {
+    "login": "fourteen.account@yopmail.com",
+    "password": "Strong&P@ssword"
+  },
+  {
+    "login": "fifteen@example.info",
+    "password": "H@rdToGuessPw!"
+  },
+  {
+    "login": "sixteen.acc@protonmail.com",
+    "password": "T00H@rd2Br34k"
+  },
+  {
+    "login": "seventeen.user@icloud.com",
+    "password": "SuperStr0ngP@ss"
+  },
+  {
+    "login": "eighteen.account@gmx.com",
+    "password": "Passw0rdWithSymb0ls"
+  },
+  {
+    "login": "nineteen@userdomain.com",
+    "password": "V3ryStr0ngPassword"
+  },
+  {
+    "login": "twenty@example.email",
+    "password": "MyV3rySecr3tP@ss"
+  }
+]

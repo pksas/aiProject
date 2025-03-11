@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = "2.21.0"
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    testCompileOnly 'org.projectlombok:lombok:1.18.26'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+    testImplementation 'io.rest-assured:rest-assured:5.3.0' // Последняя версия RestAssured
+
+    testImplementation 'io.rest-assured:json-path:5.3.0' // Для работы с JSON
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.15.1' // Jackson Databind
+
+    // Selenide dependency
+    testImplementation group: 'com.codeborne', name: 'selenide', version: '6.19.1'
+
+    // JUnit Jupiter API for writing tests
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.2'
+
+    // JUnit Engine for running tests
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.2'
+
+    // AssertJ assertions library
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'
+
+    // Allure RestAssured для автоматической записи запросов и ответов
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.14.0'
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
