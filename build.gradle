@@ -54,6 +54,8 @@ dependencies {
 
     // Allure RestAssured для автоматической записи запросов и ответов
     testImplementation 'io.qameta.allure:allure-rest-assured:2.14.0'
+
+    testImplementation 'io.qameta.allure:allure-selenide:2.21.0'
 }
 
 compileJava {

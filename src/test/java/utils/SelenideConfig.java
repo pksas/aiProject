@@ -17,6 +17,9 @@ startMaximized подсвечен в ide красным
 package utils;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
+import helpers.Attach;
+import org.junit.jupiter.api.AfterEach;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -24,17 +27,19 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
 public class SelenideConfig {
+
+    private static String testEnvironment = System.getenv("PLATFORM"); // Получаем переменную окружения
+
     private static final String SELENOID_URL = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
     public static void setup() throws MalformedURLException {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080"; // Установите нужное разрешение
         Configuration.timeout = 30000;
-
-        String testEnvironment = System.getenv("PLATFORM"); // Получаем переменную окружения
 
         if ("web".equalsIgnoreCase(testEnvironment)) { // Локальный запуск
             Configuration.browser = "chrome";
@@ -51,7 +56,7 @@ public class SelenideConfig {
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
             Configuration.browserCapabilities = chromeOptions;
-        } else if (!"web".equalsIgnoreCase(testEnvironment)) { // Удаленный запуск на Selenoid
+        } else if ("selenoid".equalsIgnoreCase(testEnvironment)) { // Удаленный запуск на Selenoid
             System.out.println("Запуск теста удалённо на Selenoid.");
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("selenoid:options", Map.<String, Object>of(

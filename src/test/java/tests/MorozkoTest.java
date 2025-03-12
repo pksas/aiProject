@@ -40,8 +40,12 @@ public class MorozkoTest {
 
 package tests;
 
+import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import helpers.Attach;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import pages.CartPage;
 import pages.HomePage;
@@ -52,7 +56,7 @@ import utils.SelenideConfig;
 import java.net.MalformedURLException;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.closeWindow;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -71,11 +75,18 @@ public class MorozkoTest {
         step("Открытие главной страницы", () -> {
             homePage = new HomePage().open();
         });
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
-    public void tearDown() {
-        closeWindow();
+    void addAttachments() {
+        if (WebDriverRunner.getWebDriver() != null) {
+            Attach.screenshotAs("Last screenshot");
+            Attach.pageSource();
+            Attach.browserConsoleLogs();
+            Attach.addVideo();
+            closeWebDriver();
+        }
     }
 
     @Test
