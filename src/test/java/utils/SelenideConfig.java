@@ -20,6 +20,7 @@ public class SelenideConfig {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080"; // Установите нужное разрешение
         Configuration.timeout = 30000;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         // Настройки для автоматического управления драйверами
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
