@@ -52,9 +52,11 @@ startMaximized подсвечен в ide красным
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import utils.SelenideConfig;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
@@ -62,9 +64,10 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Tag("disable")
 public class MorozkoTest {
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         SelenideConfig.setup(); // Вызов метода настройки Selenide
 
         // Открываем сайт

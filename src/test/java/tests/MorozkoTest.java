@@ -49,6 +49,7 @@ import pages.ProductDetailsPage;
 import pages.SearchResultsPage;
 import utils.SelenideConfig;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.closeWindow;
@@ -65,7 +66,7 @@ public class MorozkoTest {
     private CartPage cartPage;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         SelenideConfig.setup();
         step("Открытие главной страницы", () -> {
             homePage = new HomePage().open();

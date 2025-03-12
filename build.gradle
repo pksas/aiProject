@@ -32,6 +32,9 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.26'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
 
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.3.1' // Версия может быть другой, зависит от актуальных релизов
+
+
     testImplementation 'io.rest-assured:rest-assured:5.3.0' // Последняя версия RestAssured
 
     testImplementation 'io.rest-assured:json-path:5.3.0' // Для работы с JSON
@@ -59,6 +62,13 @@ compileJava {
 
 compileTestJava {
     options.encoding = 'UTF-8'
+}
+
+// Задача для запуска UI-тестов с тегами uiTest и uiTest1
+task runAciveAutoTests(type: Test) {
+    useJUnitPlatform {
+        excludeTags = ['disable', 'manual']
+    }
 }
 
 test {
