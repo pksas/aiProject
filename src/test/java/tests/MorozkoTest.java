@@ -56,6 +56,7 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Feature("My Project UI Morozko")
+@Tag("uiTest")
 public class MorozkoTest {
 
     private HomePage homePage;

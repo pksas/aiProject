@@ -43,6 +43,7 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Feature("My Project API NASA")
+@Tag("apiTest")
 public class ApodTest {
 
     private static final String key = "aBCxdXKfvWwUkBAHE066xvDMYw0WjaQcIj3Y0jZ4";
