@@ -24,6 +24,7 @@
 + [Интеграция с Jira](#Интеграция-с-Jira)
 + [Уведомления в Telegram с использованием бота](#Уведомления-в-Telegram-с-использованием-бота)
 + [Пример выполнения теста в Selenoid](#Пример-выполнения-теста-в-Selenoid)
++ [AI инструменты](#AI инструменты)
 
 
 ## Описание
@@ -171,3 +172,17 @@ PLATFORM=selenoid ./gradle clean runAciveAutoTests
 <p align="center">
   <img src="images/video/ui-test.gif">
 </p>
+
+## AI инструменты
+Инструменты AI используемые в работе:
+> GigaChat
+>
+<img src="images/screenshots/GigaChat.png">
+
+> GigaCode Chat
+>
+<img src="images/screenshots/GigaCodeChat.png">
+
+> GigaCode Completion
+>
+<img src="images/screenshots/GigaCodeCompletion.png">
