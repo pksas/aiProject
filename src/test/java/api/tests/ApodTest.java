@@ -1,27 +1,3 @@
-/*
-пример сайта с openApi без регестрации
- */
-/*
-напиши пару тестов RestAssured и Lombok, по автоматизации тестирования
-https://api.nasa.gov/
- */
-/*
-RestAssured config вывод логов в консоль
- */
-/*
-добавь тест с запросом /neo/rest/v1/feed
- */
-/*
-как отображать тела запросов и ответов в allure report?
- */
-/*
-а можно ли с помощью allure restassured lib сделать?
- */
-/*
-Отлично! Давай теперь сделаем аннотации и переведем на step следующие api тесты:
-... код api тестов ...
- */
-
 package api.tests;
 
 import api.models.ApodResponse;
@@ -46,14 +22,12 @@ import static org.junit.jupiter.api.Assertions.*;
 @Tag("apiTest")
 public class ApodTest {
 
-    private static final String key = "aBCxdXKfvWwUkBAHE066xvDMYw0WjaQcIj3Y0jZ4";
+    private static final String key = "DEMO_KEY";
 
     @BeforeAll
     public static void setup() {
-        // Настройка базовой части URL для всех последующих запросов
         RestAssured.baseURI = "https://api.nasa.gov";
 
-        // Настройка фильтров для логирования запросов и ответов
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
 
     }
@@ -67,7 +41,7 @@ public class ApodTest {
         step("Отправляем GET-запрос на endpoint /planetary/apod", () -> {
             given()
                     .filter(new AllureRestAssured())
-                    .param("api_key", key) // Используйте ваш ключ API или DEMO_KEY для тестов
+                    .param("api_key", key)
                     .when()
                     .get()
                     .then()
@@ -126,9 +100,9 @@ public class ApodTest {
         step("Отправляем GET-запрос на endpoint /neo/rest/v1/feed", () -> {
             given()
                     .filter(new AllureRestAssured())
-                    .param("start_date", "2023-01-01") // Указываем начальную дату для выборки NEOs
-                    .param("end_date", "2023-01-07")   // Указываем конечную дату
-                    .param("api_key", key)      // Используйте ваш ключ API или DEMO_KEY для тестов
+                    .param("start_date", "2023-01-01")
+                    .param("end_date", "2023-01-07")
+                    .param("api_key", key)
                     .when()
                     .get()
                     .then()

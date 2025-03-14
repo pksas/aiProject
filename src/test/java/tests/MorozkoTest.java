@@ -1,43 +1,3 @@
-/*
-Есть тесты:
-public class MorozkoTest {
-... код класса тестов
-}
-Перепиши эти тесты с использованием патерна PageObject
- */
-/*
-Предложи структуру классов и внеси изменения в код
- */
-/*
-Ты тестировщик. Задача:
-написать набор тест кейсов для https://www.morozko-shop.ru/
-Тест кейсы написать в формате ручных тестов из кода java для AllureTestOps. Пример:
- @Test
- @DisplayName("Form data can be edited (Manual)")
- @Story("Manual form operations")
- @Tag("manual")
- void editFormDataManualTest() {
- step("Open page /text-box");
- step("Edit form data");
- step("Check results");
- }
- */
-
-/*
-Перепиши уже готовые автоматизированные тесты (добавь аннотации DisplayName, Story, Tag и шаги Allure step). Вот эти тесты:
-...
-код тестов:
-...
-делай по такому примеру:
-    @Test
-    @DisplayName("Error message is displayed on incomplete form submission")
-    @Story("Text box form operations")
-    @Tag("automated")
-    void incompleteFormSubmissionTest() {
-        step("Open page /text-box", () -> {
-            open("/text-box");
- */
-
 package tests;
 
 import com.codeborne.selenide.WebDriverRunner;
@@ -94,7 +54,6 @@ public class MorozkoTest {
     @Story("Заголовок страницы")
     @Tag("automated")
     public void checkTitle() {
-        // Проверка заголовка главной страницы
         step("Проверка заголовка страницы", () -> {
             assertThat(homePage.getTitle())
                     .isEqualTo("Купить новогодние товары в Москве в интернет-магазине Morozko-shop.ru");
@@ -106,7 +65,6 @@ public class MorozkoTest {
     @Story("Функционал поиска")
     @Tag("automated")
     public void searchForProduct() {
-        // Поиск продукта и проверка результатов
         step("Поиск товара 'Комбинезон'", () -> {
             searchResultsPage = homePage.searchFor("Комбинезон");
         });
@@ -115,8 +73,6 @@ public class MorozkoTest {
             assertThat(searchResultsPage.isProductFoundByName("Комбинезон")).isTrue();
         });
 
-
-        // Проверка наличия хотя бы одного товара
         step("Проверка количества найденных товаров", () -> {
             int productCount = searchResultsPage.getProductTitles().size();
             assertThat(productCount).isGreaterThanOrEqualTo(1);
@@ -128,7 +84,6 @@ public class MorozkoTest {
     @Story("Функционал поиска")
     @Tag("automated")
     public void searchAndCheckAllProductsTitles() {
-        // Поиск гирлянд и проверка всех заголовков
         step("Поиск товара 'Гирлянда'", () -> {
             searchResultsPage = homePage.searchFor("Гирлянда");
         });
@@ -136,7 +91,6 @@ public class MorozkoTest {
         step("Проверка заголовков всех найденных товаров", () -> {
             List<String> productTitles = searchResultsPage.getProductTitles();
 
-            // Проверка каждого заголовка на наличие текста "Гирлянда"
             for (String title : productTitles) {
                 assertThat(title.toLowerCase()).contains("гирлянда");
             }
@@ -149,7 +103,6 @@ public class MorozkoTest {
     @Story("Корзина покупок")
     @Tag("automated")
     public void addItemToCart() throws InterruptedException {
-        // Переход на первую категорию и добавление товара в корзину
         step("Выбор первой категории товаров", () -> {
             productDetailsPage = homePage.navigateToFirstCategory();
         });
@@ -158,10 +111,8 @@ public class MorozkoTest {
             cartPage = productDetailsPage.addToCart();
         });
 
-        // Ожидание загрузки страницы корзины
-        Thread.sleep(2000); // Жесткое ожидание, лучше заменить на waitUntilVisible()
+        Thread.sleep(2000);
 
-        // Переход в корзину и проверка её непустоты
         step("Переход в корзину и проверка, что она не пустая", () -> {
             cartPage.goToCart();
             assertThat(cartPage.isCartNotEmpty()).isTrue();
@@ -173,7 +124,6 @@ public class MorozkoTest {
     @Story("Корзина покупок")
     @Tag("automated")
     public void addSpecificItemToCartViaSearch() throws InterruptedException {
-        // Поиск конкретного товара и добавление его в корзину
         step("Поиск товара 'Фонтан Сэтору'", () -> {
             searchResultsPage = homePage.searchFor("фонтан сэтору");
         });
@@ -187,10 +137,8 @@ public class MorozkoTest {
             cartPage = productDetailsPage.addToCart();
         });
 
-        // Ожидание загрузки страницы корзины
-        Thread.sleep(2000); // Лучше использовать ожидания через условия видимости элементов
+        Thread.sleep(2000);
 
-        // Переход в корзину и проверка её непустоты
         step("Переход в корзину и проверка, что она не пустая", () -> {
             cartPage.goToCart();
             assertThat(cartPage.isCartNotEmpty()).isTrue();

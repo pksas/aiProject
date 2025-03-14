@@ -1,17 +1,3 @@
-/*
-Есть тесты:
-public class MorozkoTest {
-... код класса тестов
-}
-Перепиши эти тесты с использованием патерна PageObject
- */
-/*
-Предложи структуру классов и внеси изменения в код
- */
-/*
-вынеси во всех pageObject локаторы вверх, а методы вниз
- */
-
 package pages;
 
 import com.codeborne.selenide.Selenide;
@@ -22,13 +8,11 @@ public class HomePage {
 
     private final String url = "https://www.morozko-shop.ru/";
 
-    // Локаторы
     private static final String SEARCH_INPUT_LOCATOR = "[name='search_words']";
     private static final String HIDE_HIGHLIGHT_LOCATOR = ".hide-highlight";
     private static final String DIR_CART_CONTAINER_LOCATOR = ".dir-cart-container";
     private static final String IN_BASKET_LABEL_ACCEPTOR_LOCATOR = ".in_basket_label_acceptor";
 
-    // Методы
     public HomePage open() {
         Selenide.open(url);
         return this;

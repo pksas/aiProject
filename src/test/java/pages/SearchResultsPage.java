@@ -1,17 +1,3 @@
-/*
-Есть тесты:
-public class MorozkoTest {
-... код класса тестов
-}
-Перепиши эти тесты с использованием патерна PageObject
- */
-/*
-Предложи структуру классов и внеси изменения в код
- */
-/*
-вынеси во всех pageObject локаторы вверх, а методы вниз
- */
-
 package pages;
 
 import java.util.List;
@@ -21,11 +7,9 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class SearchResultsPage {
 
-    // Локаторы
     private static final String PRODUCT_TITLE_LOCATOR = ".goodname_title";
     private static final String GOODS_ITEM_CARD_LOCATOR = ".goods_item_card_4";
 
-    // Методы
     public boolean isProductFoundByName(String name) {
         return
 

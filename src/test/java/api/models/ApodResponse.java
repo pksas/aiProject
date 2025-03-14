@@ -1,11 +1,3 @@
-/*
-пример сайта с openApi без регестрации
- */
-/*
-напиши пару тестов RestAssured и Lombok, по автоматизации тестирования
-https://api.nasa.gov/
- */
-
 package api.models;
 
 import lombok.Data;
