@@ -66,10 +66,23 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-// Задача для запуска UI-тестов с тегами uiTest и uiTest1
 task runAciveAutoTests(type: Test) {
     useJUnitPlatform {
         excludeTags = ['disable', 'manual']
+    }
+}
+
+task web(type: Test) {
+    useJUnitPlatform {
+        excludeTags = ['disable', 'manual']
+        includeTags = ['uiTest']
+    }
+}
+
+task api(type: Test) {
+    useJUnitPlatform {
+        excludeTags = ['disable', 'manual']
+        includeTags = ['apiTest']
     }
 }
 
