@@ -169,5 +169,5 @@ PLATFORM=selenoid ./gradle clean runAciveAutoTests
 
 > К каждому UI-тесту в отчете прилагается видео
 <p align="center">
-  <img src="images/video/ui-test.mp4">
+  <img src="images/video/ui-test.gif">
 </p>
