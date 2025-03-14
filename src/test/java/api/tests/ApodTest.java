@@ -46,7 +46,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Tag("apiTest")
 public class ApodTest {
 
-    private static final String key = "aBCxdXKfvWwUkBAHE066xvDMYw0WjaQcIj3Y0jZ4";
+    private static final String key = "DEMO_KEY";
 
     @BeforeAll
     public static void setup() {
