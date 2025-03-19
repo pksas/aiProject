@@ -164,6 +164,7 @@ PLATFORM=selenoid ./gradle clean runAciveAutoTests
 <img src="images/screenshots/jira-integration.png">
 
 >В разделе `Allure:Test Cases` отображаются интегрированные автоматизированные и ручные тесты
+> 
 <img src="images/screenshots/jira-with-allure-test-cases.png">
 
 ## Пример выполнения теста в Selenoid
